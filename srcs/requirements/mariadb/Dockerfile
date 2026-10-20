@@ -16,8 +16,3 @@ RUN mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${SQL_ROOT_PASSWORD}'
 RUN mysql -e "FLUSH PRIVILEGES;"
 RUN mysqladmin -u root p$SQL_ROOT_PASSWORD shutdown
 RUN exec mysqld_safe
-
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
