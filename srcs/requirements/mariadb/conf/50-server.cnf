@@ -2,7 +2,7 @@
 !includedir /etc/mysql/conf.d/
 !includedir /etc/mysql/mariadb.conf.d/
 
-[mysql]
+[mysqld]
 datadir = /var/lib/mysql
 socket = /run/mysqld/mysqld.sock
 bind_address=*
