@@ -17,7 +17,6 @@ RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.ph
 
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
-RUN mkdir /run/php
 COPY /tools/www.conf /etc/php/8.2/fpm/pool.d/www.conf
 COPY /conf/auto_config.sh /etc/
 RUN chmod +x /etc/auto_config.sh
