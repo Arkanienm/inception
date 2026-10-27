@@ -6,7 +6,7 @@ wp config create --allow-root \
 				 --dbuser=$SQL_USER \
 				 --dbpass=$SQL_PASSWORD \
 				 --dbhost=mariadb:3306 \
-				 --path='/var/www/wordpress'
+				 --path='/var/www/wordpress' --force
 
 wp core install --url=$URL_SITE \
 				--title=$TITLE_SITE \
