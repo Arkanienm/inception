@@ -11,7 +11,7 @@ RUN apt-get install -y php8.2\
 
 RUN wget https://fr.wordpress.org/wordpress-7.0.4-fr_FR.tar.gz -P /var/www
 
-RUN cd /var/www && tar -xzf wordpress-6.0-fr_FR.tar.gz && rm wordpress-6.0-fr_FR.tar.gz
+RUN cd /var/www && tar -xzf wordpress-7.0.4-fr_FR.tar.gz && rm wordpress-7.0.4-fr_FR.tar.gz
 RUN chown -R www-data:www-data /var/www/wordpress
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 
