@@ -1,12 +1,12 @@
 #!/bin/bash
 sleep 10
-if [ ! -f /var/www/wordpress/wp-config.php ]
-then
+if ! -f wp core is-installed --allow-root ; then
 wp config create --allow-root \
 				 --dbname=$SQL_DATABASE \
 				 --dbuser=$SQL_USER \
 				 --dbpass=$SQL_PASSWORD \
-				 --dbhost=mariadb:3306 --path='/var/www/wordpress'
+				 --dbhost=mariadb:3306 \
+				 --path='/var/www/wordpress'
 
 wp core install --url=$URL_SITE \
 				--title=$TITLE_SITE \
@@ -14,7 +14,8 @@ wp core install --url=$URL_SITE \
 				--admin_email=$ADMIN_EMAIL \
 				--admin_password=$ADMIN_PASS \
 				--allow-root \
-				--path='/var/www/wordpress'
+				--path='/var/www/wordpress' \
+				--skip-email
 
 wp user create $USER_LOG $USER_EMAIL --user_pass=$USER_PASS --allow-root --role=author --path='/var/www/wordpress'
 fi
