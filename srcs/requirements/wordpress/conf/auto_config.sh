@@ -12,10 +12,10 @@ wp core install --url=$URL_SITE \
 				--title=$TITLE_SITE \
 				--admin_user=$ADMIN_USER \
 				--admin_email=$ADMIN_EMAIL \
-				--admin_password=$SQL_PASSWORD \
+				--admin_password=$ADMIN_PASS \
 				--allow-root \
 				--path='/var/www/wordpress'
 
-wp user create $USER_LOG $USER_EMAIL --user_pass=$SQL_PASSWORD --allow-root --role=author
+wp user create $USER_LOG $USER_EMAIL --user_pass=$USER_PASS --allow-root --role=author --path='/var/www/wordpress'
 fi
 php-fpm8.2 -F
