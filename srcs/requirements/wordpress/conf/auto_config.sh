@@ -18,4 +18,6 @@ wp core install --url=$URL_SITE \
 
 wp user create $USER_LOG $USER_EMAIL --user_pass=$USER_PASS --allow-root --role=author --path='/var/www/wordpress'
 fi
-php-fpm8.2 -F
+
+chown -R www-data:www-data /var/www/wordpress
+exec /usr/sbin/php-fpm8.2 -F

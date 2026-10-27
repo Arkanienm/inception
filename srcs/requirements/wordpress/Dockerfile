@@ -22,16 +22,3 @@ COPY /conf/auto_config.sh /etc/
 RUN chmod +x /etc/auto_config.sh
 RUN mkdir -p /run/php
 ENTRYPOINT [ "/etc/auto_config.sh" ]
-
-URL_SITE=https://amurtas.42.fr
-TITLE_SITE=amurtas_title
-ADMIN_USER=anojx
-ADMIN_EMAIL=anojx@angouleme.com
-ADMIN_PASS=adminanojxlegoat
-USER_LOG=amurtas
-USER_EMAIL=amurtas@angouleme.com
-USER_PASS=anojxlegoat
-SQL_DATABASE=mariadb
-SQL_USER=amurtas
-SQL_PASSWORD=pass1
-SQL_ROOT_PASSWORD=pass1
