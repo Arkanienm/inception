@@ -16,5 +16,6 @@ wp core install --url=$URL_SITE \
 				--allow-root \
 				--path='/var/www/wordpress'
 
-wp user create $USER_LOG $USER_EMAIL --user_pass=$SQL_PASSWORD --allow-root --path='/var/www/wordpress'
+wp user create $USER_LOG $USER_EMAIL --user_pass=$SQL_PASSWORD --allow-root --role=author
 fi
+php-fpm8.2 -F
