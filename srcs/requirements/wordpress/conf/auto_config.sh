@@ -1,6 +1,6 @@
 #!/bin/bash
 sleep 10
-if ! -f wp core is-installed --allow-root ; then
+if ! wp core is-installed --allow-root ; then
 wp config create --allow-root \
 				 --dbname=$SQL_DATABASE \
 				 --dbuser=$SQL_USER \
