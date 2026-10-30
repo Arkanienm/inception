@@ -10,7 +10,7 @@ RESET		= \033[0m
 all: up
 
 up: create_dirs
-	@echo "$(GREEN)Démarrage des conteneurs Inception...$(RESET)"
+	@echo "$(GREEN)Starting inceptions containers...$(RESET)"
 	@$(DOCKER_COMPOSE) up -d --build
 
 create_dirs:
@@ -18,15 +18,15 @@ create_dirs:
 	@mkdir -p $(DATA_DIR)/mariadb
 
 down:
-	@echo "$(YELLOW)Arrêt des conteneurs...$(RESET)"
+	@echo "$(YELLOW)Stop containers ...$(RESET)"
 	@$(DOCKER_COMPOSE) down
 
 clean:
-	@echo "$(RED)Nettoyage des conteneurs et réseaux...$(RESET)"
+	@echo "$(RED)Clean containers and networks...$(RESET)"
 	@$(DOCKER_COMPOSE) down -v
 
 fclean: clean
-	@echo "$(RED)Suppression des données locales sur l'hôte...$(RESET)"
+	@echo "$(RED)Deleting locales data on host...$(RESET)"
 	@sudo rm -rf $(DATA_DIR)/wordpress/*
 	@sudo rm -rf $(DATA_DIR)/mariadb/*
 	@docker system prune -a --force
