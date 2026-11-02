@@ -1,4 +1,6 @@
 #!/bin/bash
+SQL_ROOT_PASSWORD=$(cat /run/secrets/sql_root_pass)
+SQL_PASSWORD=$(cat /run/secrets/sql_pass)
 service mariadb start
 mysql -e "CREATE DATABASE IF NOT EXISTS \`${SQL_DATABASE}\`;"
 mysql -e "CREATE USER IF NOT EXISTS \`${SQL_USER}\`@'%' IDENTIFIED BY '${SQL_PASSWORD}';"

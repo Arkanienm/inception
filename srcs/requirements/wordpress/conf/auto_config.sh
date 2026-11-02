@@ -1,4 +1,8 @@
 #!/bin/bash
+SQL_PASSWORD=$(cat /run/secrets/sql_pass)
+ADMIN_PASS=$(cat /run/secrets/admin_pass)
+USER_PASS=$(cat /run/secrets/user_pass)
+
 sleep 10
 if ! wp core is-installed --allow-root --path='/var/www/wordpress' ; then
 wp config create --allow-root \
