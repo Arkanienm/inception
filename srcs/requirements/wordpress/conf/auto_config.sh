@@ -3,7 +3,15 @@ SQL_PASSWORD=$(cat /run/secrets/sql_pass)
 ADMIN_PASS=$(cat /run/secrets/admin_pass)
 USER_PASS=$(cat /run/secrets/user_pass)
 
-sleep 10
+tries=0
+until mysqladmin ping -h mariadb -u"$SQL_USER" -p"$SQL_PASSWORD" --silent; do
+    tries=$((tries + 1))
+    if [ "$tries" -ge 30 ]; then
+        echo "MariaDB not reachable, giving up" >&2
+        exit 1
+    fi
+    sleep 2
+done
 if ! wp core is-installed --allow-root --path='/var/www/wordpress' ; then
 wp config create --allow-root \
 				 --dbname=$SQL_DATABASE \
